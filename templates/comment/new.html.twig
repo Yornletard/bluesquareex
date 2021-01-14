@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau commentaire sur le ticket {{ ticket.id }}{% endblock %}
+
+{% block body %}
+    <h1>Nouveau commentaire sur le ticket {{ ticket.id }}</h1>
+    {{ form(form) }}
+
+{% endblock %}

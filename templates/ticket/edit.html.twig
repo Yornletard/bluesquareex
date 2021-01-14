@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier ticket {{ ticket.id }}{% endblock %}
+
+{% block body %}
+    <h1>Modifier le ticket {{ ticket.id }}</h1>
+    <div class="row">
+        <div class="col-6">
+            <h2>Activité</h2>
+            <div class="card">
+                <div class="card-body">
+                    {% for comment in comments %}
+                        <ul class="list-group">
+                            <li class="list-group-item">"{{ comment.title }}", par {{ comment.creator }}: {{ comment.description }}</li>
+                        </ul>
+                    {% endfor %}
+                    <a href="{{ path('comment_new', {'id': ticket.id}) }}"><button class="btn btn-outline-primary">Commenter</button></a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-6">
+            <h2>Informations</h2>
+            <div class="card">
+                <div class="card-body">
+                    {{ form(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <a href="{{ path('ticket') }}">Retour aux tickets</a>
+
+
+
+
+
+{% endblock %}
